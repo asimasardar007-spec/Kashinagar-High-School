@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kashinagar High School Gallery</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; font-family: sans-serif; }
+        body { background:#000; color:#fff; }
+
+        /* Welcome Screen Fix - Jaldi hatega */
+        #welcome {
+            position:fixed; inset:0; background:#000;
+            display:flex; justify-content:center; align-items:center;
+            z-index:9999; animation: fadeOut 0.5s forwards 1.5s;
+        }
+        @keyframes fadeOut { to { opacity:0; visibility:hidden; } }
+
+        header { text-align:center; padding:30px; }
+        h1 { color:#ffcc00; }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 15px; }
+
+        /* VIDEO BOX */
+        .video-box {
+            width: 100%; background: #111; border: 2px solid #ffcc00;
+            border-radius: 12px; overflow: hidden; margin-bottom: 30px;
+        }
+        video { width: 100%; aspect-ratio: 16/9; display: block; }
+
+        /* PHOTO GRID */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .item { height: 200px; border-radius: 8px; overflow: hidden; background: #222; cursor: pointer; }
+        .item img { width: 100%; height: 100%; object-fit: cover; border: 1px solid #333; }
+
+        /* Full View */
+        #viewer {
+            position:fixed; inset:0; background:rgba(0,0,0,0.9);
+            display:none; justify-content:center; align-items:center; z-index:10000;
+        }
+        #viewer img { max-width:90%; max-height:80%; border: 2px solid #fff; }
+    </style>
+</head>
+<body>
+
+<div id="welcome">
+    <h2 style="color:#ffcc00;">Welcome to Kashinagar High School Saraswati Puja 2026 <br> Loading Memories...</h2>
+</div>
+
+<header>
+    <h1>School Memories</h1>
+</header>
+
+<div class="container">
+    <div class="video-box">
+        <h3 style="padding:10px; font-size:14px; color:#ffcc00;">🎬 Puja Highlights Video</h3>
+        <video controls autoplay muted>
+            <source src="02.mp4" type="video/mp4">
+            Your browser cannot find 'video1.mp4' file.
+        </video>
+    </div>
+
+    <h2 style="margin-bottom:15px; font-size:18px;">📸 Event Photos</h2>
+    <div class="gallery">
+        <div class="item"><img src="1.jpg"></div>
+        <div class="item"><img src="2.jpg"></div>
+        <div class="item"><img src="3.jpg"></div>
+        <div class="item"><img src="4.jpg"></div>
+        <div class="item"><img src="5.jpg"></div>
+        <div class="item"><img src="6.jpg"></div>
+        <div class="item"><img src="7.jpg"></div>
+        <div class="item"><img src="8.jpg"></div>
+        <div class="item"><img src="9.jpg"></div>
+        <div class="item"><img src="10.jpg"></div>
+	<div class="item"><img src="11.jpg"></div>
+	<div class="item"><img src="12.jpg"></div>
+	<div class="item"><img src="13.jpg"></div>
+	<div class="item"><img src="14.jpg"></div>
+	<div class="item"><img src="15.jpg"></div>
+	<div class="item"><img src="16.jpg"></div>
+	<div class="item"><img src="17.jpg"></div>
+	<div class="item"><img src="18.jpg"></div>
+	<div class="item"><img src="19.jpg"></div>
+	<div class="item"><img src="20.jpg"></div>
+	<div class="item"><img src="21.jpg"></div>
+	<div class="item"><img src="22.jpg"></div>
+	<div class="item"><img src="23.jpg"></div>
+	<div class="item"><img src="24.jpg"></div>
+	<div class="item"><img src="25.jpg"></div>
+	<div class="item"><img src="26.jpg"></div>
+	<div class="item"><img src="27.jpg"></div>
+	<div class="item"><img src="28.jpg"></div>
+	<div class="item"><img src="29.jpg"></div>
+	<div class="item"><img src="30.jpg"></div>
+	<div class="item"><img src="31.jpg"></div>
+	<div class="item"><img src="32.jpg"></div>
+	<div class="item"><img src="33.jpg"></div>
+	<div class="item"><img src="34.jpg"></div>
+	<div class="item"><img src="35.jpg"></div>
+	<div class="item"><img src="36.jpg"></div>
+	<div class="item"><img src="37.jpg"></div>
+	<div class="item"><img src="38.jpg"></div>
+    </div>
+</div>
+
+<div id="viewer" onclick="this.style.display='none'">
+    <img id="vImg">
+</div>
+
+<script>
+    // Force Close Welcome Screen in 2 seconds
+    setTimeout(() => {
+        document.getElementById('welcome').style.display = 'none';
+    }, 2000);
+
+    const imgs = document.querySelectorAll(".item img");
+    const viewer = document.getElementById("viewer");
+    const vImg = document.getElementById("vImg");
+
+    imgs.forEach(img => {
+        img.onclick = () => {
+            viewer.style.display = "flex";
+            vImg.src = img.src;
+        };
+    });
+</script>
+
+</body>
+</html>
